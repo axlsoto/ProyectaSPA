@@ -220,53 +220,40 @@ nav {
 
 /* =================================================================
   HERO
+  Editorial split: large headline on the left column, supporting copy
+  + CTA + badge on the right, bottom-aligned to the headline — this is
+  what fills the composition instead of a big block of empty white space.
    ================================================================= */
 .hero {
   margin-top: var(--nav-h);
-  display: grid; grid-template-columns: 1.15fr 1fr;
   border-bottom: var(--hairline);
 }
 .hero-left {
-  padding: var(--sp-8) var(--sp-6) var(--sp-7) var(--gutter);
-  display: flex; flex-direction: column; justify-content: center;
+  padding: var(--sp-8) var(--gutter) var(--sp-7);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--sp-7);
+  align-items: start;
 }
 .hero-headline {
   font-family: var(--serif); font-weight: 400;
   font-size: var(--text-display); line-height: var(--lh-tight);
   color: var(--verde-800); letter-spacing: -0.01em;
-  margin-bottom: var(--sp-4);
   max-width: 15ch;
 }
 .hero-headline em { font-style: italic; color: var(--naranjo); }
+.hero-support { display: flex; flex-direction: column; gap: var(--sp-4); }
 .hero-body {
   font-size: var(--text-body-lg); line-height: var(--lh-body);
-  color: var(--gris-600); max-width: 46ch; margin-bottom: var(--sp-5);
+  color: var(--gris-600); max-width: 38ch;
 }
-.hero-actions { display: flex; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-5); flex-wrap: wrap; }
-.hero-left .badge { align-self: flex-start; }
-
-.hero-right {
-  background: var(--verde-800);
-  padding: var(--sp-7) var(--sp-6);
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative;
-  background-image:
-    linear-gradient(var(--on-dark-14) 1px, transparent 1px),
-    linear-gradient(90deg, var(--on-dark-14) 1px, transparent 1px);
-  background-size: 100% 48px, 48px 100%;
-  background-position: 0 0;
-}
-.hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--on-dark-14); border: 1px solid var(--on-dark-14); }
-.hero-stat { background: var(--verde-800); padding: var(--sp-4) var(--sp-3); }
-.stat-number { font-family: var(--serif); font-size: 42px; font-weight: 400; color: var(--blanco); line-height: 1; margin-bottom: var(--sp-2); }
-.stat-label { font-size: var(--text-micro); font-weight: 400; color: var(--on-dark-60); letter-spacing: 0.02em; line-height: 1.55; }
-.hero-note {
-  margin-top: var(--sp-5); padding-top: var(--sp-4); border-top: var(--hairline-dark);
-  font-size: var(--text-small); color: var(--on-dark-90); line-height: 1.75; font-style: italic; font-family: var(--serif);
-}
+.hero-actions { display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap; }
+.hero-support .badge { align-self: flex-start; }
 
 /* =================================================================
-  SECTION SHELL
+   SECTION SHELL
    ================================================================= */
 section, .full-bleed { padding: var(--sp-8) 0; }
 section .container, .full-bleed .container { padding-top: 0; padding-bottom: 0; }
@@ -427,9 +414,10 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 1024px) {
   :root { --gutter: 48px; }
 
-  .hero { grid-template-columns: 1fr; }
   .hero-left { padding: var(--sp-7) var(--gutter) var(--sp-6); }
-  .hero-right { padding: var(--sp-6) var(--gutter); }
+  .hero-grid { grid-template-columns: 1fr; align-items: start; gap: var(--sp-5); }
+  .hero-headline { max-width: none; }
+  .hero-body { max-width: 60ch; }
 
   .pilares-grid { grid-template-columns: repeat(2, 1fr); }
   .pilar { border-bottom: var(--hairline-dark); padding-bottom: var(--sp-4); }
@@ -525,11 +513,7 @@ a:focus-visible, button:focus-visible {
   body.nav-open { overflow: hidden; }
 
   /* Hero */
-  .hero-headline { max-width: none; }
   .hero-actions { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
-  .hero-stat-grid { grid-template-columns: 1fr 1fr; }
-  .hero-stat { padding: var(--sp-3) var(--sp-2); }
-  .stat-number { font-size: 32px; }
 
   /* Pilares */
   .pilares-grid { grid-template-columns: 1fr; }
@@ -552,7 +536,5 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- ≤480px : small mobile ---------- */
 @media (max-width: 480px) {
-  .hero-stat-grid { grid-template-columns: 1fr; }
-
   footer .container { flex-direction: column; align-items: flex-start; gap: var(--sp-1); }
 }
