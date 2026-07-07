@@ -101,6 +101,9 @@ body {
 }
 .eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: currentColor; }
 .eyebrow.on-dark { color: var(--turquesa-dim); }
+.eyebrow.eyebrow-on-light { color: var(--verde-800); }
+
+.section-title.section-title-sm { font-size: var(--text-h3); }
 
 .section-header {
   max-width: 640px;
@@ -169,6 +172,8 @@ body {
 .badge.on-dark { color: var(--turquesa-dim); border-color: rgba(127,195,193,0.35); }
 .badge.on-dark::before { background: var(--turquesa-dim); }
 
+.contacto-meta { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; margin-top: var(--sp-5); }
+
 /* =================================================================
   NAV
    ================================================================= */
@@ -226,6 +231,7 @@ nav {
    ================================================================= */
 .hero {
   margin-top: var(--nav-h);
+  padding: 0;
   border-bottom: var(--hairline);
 }
 .hero-left {
