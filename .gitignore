@@ -1,0 +1,10 @@
+# Claude Code — configuración local y skills instaladas (no forman parte del sitio)
+.claude/
+
+# Dependencias de herramientas puntuales (el sitio no usa npm)
+node_modules/
+
+# Windows / editores
+Thumbs.db
+desktop.ini
+.vscode/

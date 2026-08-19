@@ -29,18 +29,20 @@
 <meta name="twitter:description" content="Gestión administrativa y rendición de cuentas de proyectos financiados con fondos públicos. Especialistas en normativa ANID.">
 <meta name="twitter:image" content="https://www.proyectachilespa.cl/assets/logo.png">
 
-<!-- Favicon — reemplaza estas rutas por tu ícono definitivo cuando lo tengas -->
+<!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
 <link rel="shortcut icon" href="assets/logo.png">
-<meta name="theme-color" content="#123E42">
+<meta name="theme-color" content="#F1F3EF">
 
 <!-- Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Geist para toda la prosa (cuerpo, títulos, párrafos).
+     Geist Mono para código, cifras y texto secundario/dato. -->
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/styles.css">
 
 <!-- Structured data: negocio -->
@@ -68,7 +70,9 @@
 }
 </script>
 
-<!-- Structured data: preguntas frecuentes -->
+<!-- Structured data: preguntas frecuentes.
+     Los seis "name" reproducen exactamente los seis <summary> de
+     .faq; si se edita uno, hay que editar el otro. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -128,316 +132,395 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="PROYECTA SpA" class="nav-logo-mark">PROYECTA SpA</a>
-  <ul class="nav-links" id="navLinks">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<!-- BARRA -->
+<nav class="barra">
+  <a href="index.html" class="marca">
+    <img src="assets/logo.png" alt="" class="marca-signo" width="30" height="30">
+    <span class="marca-texto">PROYECTA <span>SpA</span></span>
+  </a>
+  <ul class="barra-links" id="navLinks">
+    <li><a href="#principios">Principios</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#faq">Preguntas frecuentes</a></li>
+    <li><a href="#metodologia">Metodología</a></li>
+    <li><a href="#faq">Preguntas</a></li>
     <li><a href="#contacto">Contacto</a></li>
-    <li class="nav-links-mobile-cta"><a href="#contacto" class="btn btn-primary nav-cta">Contactar</a></li>
+    <li class="barra-links-cta"><a href="#contacto" class="btn btn--solido barra-cta">Solicitar diagnóstico</a></li>
   </ul>
-  <a href="#contacto" class="btn btn-primary nav-cta nav-cta-desktop">Contactar</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+  <a href="#contacto" class="btn btn--solido barra-cta barra-cta--escritorio">Solicitar diagnóstico</a>
+  <button type="button" class="barra-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="eyebrow">Gestión de Proyectos Científicos</div>
-    <div class="hero-grid">
-      <h1 class="hero-headline">Control riguroso para la <em>correcta ejecución</em> de fondos públicos</h1>
-      <div class="hero-support">
-        <p class="hero-body">Asesoramos a universidades, centros de investigación e investigadores en la gestión administrativa y rendición de cuentas de proyectos financiados con fondos públicos, especialmente proyectos ANID.</p>
-        <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary btn-lg">Solicitar asesoría</a>
-          <a href="#servicios" class="btn btn-ghost">Ver servicios →</a>
+<main id="contenido">
+
+<!-- PORTADA -->
+<header class="portada">
+  <div class="shell">
+    <p class="eyebrow alza">ANID · FONDECYT · MILENIO · ANILLOS</p>
+    <h1 class="portada-titular alza alza-2">La observación se evita <b>antes</b>, no se responde después.</h1>
+
+    <div class="portada-cuerpo">
+      <p class="portada-bajada alza alza-3">Gestionamos la administración y la rendición de cuentas de proyectos financiados con fondos públicos, con especialización central en instrumentos ANID. <strong>Usted dirige la investigación; nosotros llevamos el expediente.</strong></p>
+      <div class="portada-acciones alza alza-3">
+        <a href="#contacto" class="btn btn--solido btn--lg">Solicitar reunión de diagnóstico</a>
+        <a href="#metodologia" class="btn btn--filo btn--lg">Ver la metodología</a>
+      </div>
+    </div>
+
+    <!-- ELEMENTO FIRMA — selector de punto de entrada.
+         El eje son los cuatro hitos reales del ciclo del proyecto; los
+         tres botones, las tres situaciones reales en que un proyecto
+         llega a nosotros. js/main.js mueve el tramo y cambia el panel. -->
+    <section class="entrada alza alza-4" id="entrada" aria-labelledby="entrada-titulo">
+      <h2 class="entrada-titulo" id="entrada-titulo">¿En qué punto está su proyecto?</h2>
+
+      <div class="eje" aria-hidden="true">
+        <div class="eje-riel">
+          <span class="eje-tramo"></span>
+          <span class="eje-cursor"></span>
         </div>
-        <div class="badge">Especialistas en normativa ANID</div>
+        <ul class="eje-hitos">
+          <li class="eje-hito eje-hito--cubierto">Adjudicación</li>
+          <li class="eje-hito eje-hito--cubierto">Ejecución</li>
+          <li class="eje-hito eje-hito--cubierto">Rendiciones</li>
+          <li class="eje-hito eje-hito--cubierto">Cierre</li>
+        </ul>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- PILARES -->
-<section class="pilares" id="nosotros">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow on-dark">Lo que protegemos</div>
-      <h2 class="section-title on-dark">Cuatro principios que rigen cada proyecto</h2>
-    </div>
-  </div>
-  <div class="container">
-    <div class="pilares-grid">
-      <div class="pilar">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
-        <div class="pilar-title">Cumplimiento normativo</div>
-        <p class="pilar-body">Alineados con las bases concursales e instructivos vigentes de ANID y organismos asociados.</p>
+      <div class="entrada-ops" role="tablist" aria-label="Situación actual del proyecto">
+        <button type="button" class="op" role="tab" id="op-adjudicado" aria-controls="panel-adjudicado" aria-selected="true" data-desde="0%" data-hito="0">Recién adjudicado</button>
+        <button type="button" class="op" role="tab" id="op-ejecucion" aria-controls="panel-ejecucion" aria-selected="false" tabindex="-1" data-desde="33.333%" data-hito="1">En ejecución</button>
+        <button type="button" class="op" role="tab" id="op-observaciones" aria-controls="panel-observaciones" aria-selected="false" tabindex="-1" data-desde="66.667%" data-hito="2">Con observaciones</button>
       </div>
-      <div class="pilar">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
-        <div class="pilar-title">Transparencia total</div>
-        <p class="pilar-body">Cada movimiento de fondos documentado y trazable. Sin conflictos de interés, sin zonas grises.</p>
-      </div>
-      <div class="pilar">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
-        <div class="pilar-title">Control preventivo</div>
-        <p class="pilar-body">Identificamos riesgos administrativos antes de que se conviertan en observaciones o reprocesos.</p>
-      </div>
-      <div class="pilar">
-        <div class="pilar-icon"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-        <div class="pilar-title">Aliado estratégico</div>
-        <p class="pilar-body">Acompañamiento continuo durante todo el ciclo de vida del proyecto, no solo en la rendición final.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- PROCESO -->
-<section class="proceso" id="proceso">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow">Metodología</div>
-      <h2 class="section-title">Cómo gestionamos su proyecto</h2>
-    </div>
-    <div class="proceso-timeline">
-      <div class="proceso-step">
-        <div class="step-circle active">01</div>
-        <div class="step-title">Diagnóstico inicial</div>
-        <p class="step-body">Levantamiento del estado administrativo y documental del proyecto adjudicado.</p>
+      <div class="entrada-panel" id="panel-adjudicado" role="tabpanel" aria-labelledby="op-adjudicado" tabindex="0">
+        <p class="entrada-texto"><strong>Es el momento de entrada ideal:</strong> todavía no se ejecuta el primer gasto. Definimos la estructura documental y el calendario de rendiciones antes de que exista un solo respaldo que corregir, alineados con las bases concursales del instrumento adjudicado.</p>
+        <dl class="entrada-entrega">
+          <dt>Primera entrega</dt>
+          <dd>Plan de gestión con calendario de rendiciones e hitos</dd>
+        </dl>
       </div>
-      <div class="proceso-step">
-        <div class="step-circle">02</div>
-        <div class="step-title">Plan de gestión</div>
-        <p class="step-body">Diseño del calendario de rendiciones, hitos y estructura documental conforme a normativa.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-circle">03</div>
-        <div class="step-title">Ejecución y control</div>
-        <p class="step-body">Revisión continua de gastos, validación de respaldos y alertas preventivas.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-circle">04</div>
-        <div class="step-title">Rendición formal</div>
-        <p class="step-body">Preparación y presentación de rendiciones ante el organismo financiador.</p>
-      </div>
-      <div class="proceso-step">
-        <div class="step-circle accent">05</div>
-        <div class="step-title">Cierre y trazabilidad</div>
-        <p class="step-body">Archivo documental completo y reporte ejecutivo para el equipo de investigación.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SERVICIOS -->
-<section class="servicios" id="servicios">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow">Servicios</div>
-      <h2 class="section-title">Gestión especializada en cada etapa</h2>
-    </div>
-  </div>
-  <div class="container">
-    <div class="servicios-grid">
-      <div class="servicio">
-        <div class="servicio-num">— 01</div>
-        <div class="servicio-title">Rendición de gastos y respaldo documental</div>
-        <p class="servicio-body">Revisión, clasificación y validación de todos los gastos imputables al proyecto conforme a las bases concursales. Organización del expediente documental para auditorías.</p>
-        <span class="servicio-tag">Rendición</span>
+      <div class="entrada-panel" id="panel-ejecucion" role="tabpanel" aria-labelledby="op-ejecucion" tabindex="0" hidden>
+        <p class="entrada-texto">Levantamos el estado administrativo y documental del proyecto, ordenamos los respaldos ya emitidos y corregimos las desviaciones <strong>antes de la próxima presentación</strong>. Desde ahí operamos el control continuo hasta el cierre.</p>
+        <dl class="entrada-entrega">
+          <dt>Primera entrega</dt>
+          <dd>Informe del estado administrativo y documental</dd>
+        </dl>
       </div>
-      <div class="servicio">
-        <div class="servicio-num">— 02</div>
-        <div class="servicio-title">Prevención de observaciones administrativas</div>
-        <p class="servicio-body">Análisis anticipado de riesgos, identificación de inconsistencias y corrección de desviaciones antes de la presentación formal ante ANID u otro organismo.</p>
-        <span class="servicio-tag">Prevención</span>
-      </div>
-      <div class="servicio">
-        <div class="servicio-num">— 03</div>
-        <div class="servicio-title">Gestión de plazos e hitos normativos</div>
-        <p class="servicio-body">Control del calendario de compromisos administrativos, alertas de vencimiento y coordinación con la institución ejecutora para el cumplimiento oportuno.</p>
-        <span class="servicio-tag">Cumplimiento</span>
-      </div>
-      <div class="servicio">
-        <div class="servicio-num">— 04</div>
-        <div class="servicio-title">Asesoría en modificaciones presupuestarias</div>
-        <p class="servicio-body">Orientación técnica para reasignaciones y modificaciones de presupuesto según los márgenes permitidos por la normativa vigente de cada instrumento.</p>
-        <span class="servicio-tag">Asesoría</span>
-      </div>
-      <div class="servicio">
-        <div class="servicio-num">— 05</div>
-        <div class="servicio-title">Acompañamiento a investigadores responsables</div>
-        <p class="servicio-body">Soporte directo al investigador principal para la toma de decisiones administrativas, liberándolo de la carga burocrática para que focalice en la investigación.</p>
-        <span class="servicio-tag">Acompañamiento</span>
-      </div>
-      <div class="servicio">
-        <div class="servicio-num">— 06</div>
-        <div class="servicio-title">Cierre administrativo de proyectos</div>
-        <p class="servicio-body">Gestión integral del proceso de cierre: actas, informes finales, reintegros y archivo del expediente conforme a los requisitos del organismo financiador.</p>
-        <span class="servicio-tag">Cierre</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- POR QUÉ -->
-<div class="porque">
-  <div class="porque-left">
-    <div class="eyebrow">Diferenciadores</div>
-    <h2 class="section-title">Por qué PROYECTA SpA</h2>
-    <ul class="check-list">
-      <li class="check-item">
-        <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text"><strong>Experiencia directa en financiamiento científico.</strong> Conocemos desde adentro las exigencias técnicas y procedimentales del sistema de fondos públicos.</div>
+      <div class="entrada-panel" id="panel-observaciones" role="tabpanel" aria-labelledby="op-observaciones" tabindex="0" hidden>
+        <p class="entrada-texto">Revisamos los documentos objetados, identificamos la causa de cada observación y preparamos la respuesta <strong>dentro de los plazos establecidos</strong>. Enseguida corregimos el procedimiento que la originó, para que no se repita en la rendición siguiente.</p>
+        <dl class="entrada-entrega">
+          <dt>Primera entrega</dt>
+          <dd>Diagnóstico de la situación y plan de subsanación</dd>
+        </dl>
+      </div>
+    </section>
+  </div>
+</header>
+
+<!-- PRINCIPIOS — manifiesto. Cinco reglas, no una secuencia: sin numerar. -->
+<section class="banda banda--osc" id="principios">
+  <div class="shell">
+    <div class="cabecera revela">
+      <p class="eyebrow">Principios</p>
+      <h2 class="titulo">Cinco reglas que rigen cualquier encargo</h2>
+    </div>
+    <ul class="manifiesto">
+      <li class="manifiesto-fila revela">
+        <span class="manifiesto-clave">Prevención</span>
+        <div>
+          <p class="manifiesto-afirmacion">Intervenimos antes de que exista la observación, no después de que llega el oficio.</p>
+          <p class="manifiesto-glosa">El riesgo administrativo se corrige en la revisión previa. Una vez presentada la rendición, la misma corrección exige un procedimiento formal y sujeto a plazo.</p>
+        </div>
       </li>
-      <li class="check-item">
-        <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text"><strong>Especialización exclusiva.</strong> No somos una consultora generalista. Toda nuestra capacidad está focalizada en la gestión de proyectos de investigación con fondos públicos.</div>
+      <li class="manifiesto-fila revela">
+        <span class="manifiesto-clave">Especialización</span>
+        <div>
+          <p class="manifiesto-afirmacion">Una sola materia: proyectos de investigación con fondos públicos.</p>
+          <p class="manifiesto-glosa">No somos una consultora generalista. Toda la capacidad del equipo está puesta en las bases concursales y los instructivos vigentes de ANID y de los organismos asociados.</p>
+        </div>
       </li>
-      <li class="check-item">
-        <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text"><strong>Independencia y ética.</strong> Operamos sin conflictos de interés, garantizando total transparencia en el manejo de información y fondos del proyecto.</div>
+      <li class="manifiesto-fila revela">
+        <span class="manifiesto-clave">Independencia</span>
+        <div>
+          <p class="manifiesto-afirmacion">Sin vínculos con el organismo financiador ni con terceros del proyecto.</p>
+          <p class="manifiesto-glosa">Ningún encargo justifica un conflicto de interés. Toda la información del proyecto se maneja bajo acuerdos estrictos de confidencialidad.</p>
+        </div>
       </li>
-      <li class="check-item">
-        <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text"><strong>Enfoque preventivo, no reactivo.</strong> Intervenimos antes de que surjan las observaciones, no después de que el daño está hecho.</div>
+      <li class="manifiesto-fila revela">
+        <span class="manifiesto-clave">Trazabilidad</span>
+        <div>
+          <p class="manifiesto-afirmacion">Cada movimiento de fondos queda documentado y es reconstruible.</p>
+          <p class="manifiesto-glosa">El expediente se arma para resistir una auditoría: clasificación del gasto, respaldo que lo sustenta y fecha en que fue rendido, sin zonas grises.</p>
+        </div>
       </li>
-      <li class="check-item">
-        <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="check-text"><strong>Confidencialidad garantizada.</strong> Toda la información del proyecto se maneja bajo estrictos protocolos de confidencialidad e independencia profesional.</div>
+      <li class="manifiesto-fila revela">
+        <span class="manifiesto-clave">Descarga</span>
+        <div>
+          <p class="manifiesto-afirmacion">El investigador responsable interviene sólo donde su firma o su criterio técnico son necesarios.</p>
+          <p class="manifiesto-glosa">El seguimiento de plazos, la revisión de respaldos y la preparación de las rendiciones los asumimos nosotros.</p>
+        </div>
       </li>
     </ul>
   </div>
-  <div class="porque-right">
-    <div class="eyebrow eyebrow-on-light">Orientado a</div>
-    <h3 class="section-title section-title-sm">Quiénes confían en nosotros</h3>
-    <div class="clientes-list">
-      <div class="cliente-card">
-        <div class="cliente-card-label">Universidades</div>
-        <p>Unidades de investigación y vicerrectorías que gestionan múltiples proyectos simultáneos y requieren un control administrativo robusto.</p>
-      </div>
-      <div class="cliente-card verde">
-        <div class="cliente-card-label">Centros de investigación</div>
-        <p>Instituciones con equipos multidisciplinarios que necesitan trazabilidad y control en la ejecución de fondos competitivos.</p>
-      </div>
-      <div class="cliente-card naranjo">
-        <div class="cliente-card-label">Investigadores responsables</div>
-        <p>Académicos e investigadores que lideran proyectos FONDECYT u otros y buscan un aliado que gestione la carga administrativa.</p>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow">Preguntas frecuentes</div>
-      <h2 class="section-title">Lo que los investigadores nos preguntan</h2>
+<!-- SERVICIOS — catálogo contratable por separado, no una secuencia. -->
+<section class="banda" id="servicios">
+  <div class="shell">
+    <div class="cabecera cabecera--ancha revela">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="titulo">Seis frentes de la gestión administrativa</h2>
+      <p class="bajada">Se contratan como acompañamiento integral por todo el ciclo, como asesoría puntual para una etapa, o como revisión periódica para instituciones con varios proyectos en curso. La estructura se define en la primera reunión.</p>
     </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿En qué momento del proyecto conviene contratar a PROYECTA?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer"><p>Lo ideal es incorporarnos desde el momento de la adjudicación, antes de ejecutar cualquier gasto. Esto nos permite diseñar el plan de gestión documental desde cero, alineado con las bases concursales. También podemos incorporarnos en proyectos en curso para ordenar la situación administrativa y prevenir observaciones en las rendiciones pendientes.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿PROYECTA trabaja solo con proyectos ANID o también con otros organismos?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer"><p>Nuestra especialización central son los proyectos financiados por ANID (FONDECYT, MILENIO, ANILLOS, entre otros), donde conocemos en profundidad los instructivos, bases y procedimientos vigentes. También podemos asesorar en proyectos financiados por otros organismos públicos, evaluando caso a caso la normativa aplicable.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Cómo se garantiza la confidencialidad de la información del proyecto?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer"><p>Toda la información compartida con PROYECTA SpA está sujeta a estrictos acuerdos de confidencialidad. Operamos con independencia total respecto a los organismos financiadores y a terceros vinculados al proyecto, lo que garantiza que la información documental, presupuestaria y estratégica del equipo de investigación se mantenga reservada.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Qué ocurre si el proyecto ya tiene observaciones de ANID?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer"><p>Podemos intervenir en proyectos que ya han recibido observaciones formales. El primer paso es un diagnóstico de la situación actual: revisamos los documentos objetados, identificamos las causas y elaboramos un plan de subsanación. Nuestra experiencia en los criterios de revisión de ANID nos permite actuar con precisión para resolver las observaciones dentro de los plazos establecidos.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿El investigador debe seguir participando en los trámites administrativos?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer"><p>Nuestro objetivo es reducir al mínimo la carga administrativa del investigador responsable. Nos encargamos de la gestión documental, el seguimiento de plazos y la preparación de rendiciones. El investigador participa únicamente en las decisiones que requieren su firma o criterio técnico — el resto lo gestionamos nosotros.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-question-text">¿Cómo se estructura el servicio: es por proyecto o por período?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer"><p>El servicio se estructura según las necesidades del proyecto. Podemos ofrecer acompañamiento integral durante todo el ciclo del proyecto, asesorías puntuales para etapas específicas, o un servicio de revisión periódica para instituciones que gestionan múltiples proyectos simultáneos. Lo definimos en una primera reunión de diagnóstico sin costo.</p></div>
-      </div>
+    <ul class="servicios">
+      <li class="servicio revela">
+        <p class="servicio-materia">Rendición</p>
+        <h3 class="servicio-titulo">Rendición de gastos y respaldo documental</h3>
+        <p class="servicio-cuerpo">Revisión, clasificación y validación de todos los gastos imputables al proyecto conforme a las bases concursales, y organización del expediente documental para auditorías.</p>
+      </li>
+      <li class="servicio revela">
+        <p class="servicio-materia">Prevención</p>
+        <h3 class="servicio-titulo">Prevención de observaciones administrativas</h3>
+        <p class="servicio-cuerpo">Análisis anticipado de riesgos, identificación de inconsistencias y corrección de desviaciones antes de la presentación formal ante ANID u otro organismo.</p>
+      </li>
+      <li class="servicio revela">
+        <p class="servicio-materia">Cumplimiento</p>
+        <h3 class="servicio-titulo">Gestión de plazos e hitos normativos</h3>
+        <p class="servicio-cuerpo">Control del calendario de compromisos administrativos, alertas de vencimiento y coordinación con la institución ejecutora para el cumplimiento oportuno.</p>
+      </li>
+      <li class="servicio revela">
+        <p class="servicio-materia">Presupuesto</p>
+        <h3 class="servicio-titulo">Asesoría en modificaciones presupuestarias</h3>
+        <p class="servicio-cuerpo">Orientación técnica para reasignaciones y modificaciones de presupuesto dentro de los márgenes que permite la normativa vigente de cada instrumento.</p>
+      </li>
+      <li class="servicio revela">
+        <p class="servicio-materia">Acompañamiento</p>
+        <h3 class="servicio-titulo">Acompañamiento a investigadores responsables</h3>
+        <p class="servicio-cuerpo">Soporte directo al investigador principal en las decisiones administrativas que requieren su criterio, liberándolo del resto de la carga burocrática.</p>
+      </li>
+      <li class="servicio revela">
+        <p class="servicio-materia">Cierre</p>
+        <h3 class="servicio-titulo">Cierre administrativo de proyectos</h3>
+        <p class="servicio-cuerpo">Gestión integral del cierre: actas, informes finales, reintegros y archivo del expediente conforme a los requisitos del organismo financiador.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- METODOLOGÍA — la única secuencia de la página, y por eso la única
+     que va numerada. Cada etapa declara su entregable. -->
+<section class="banda banda--hundida" id="metodologia">
+  <div class="shell">
+    <div class="cabecera cabecera--ancha revela">
+      <p class="eyebrow">Metodología</p>
+      <h2 class="titulo">Cinco etapas, cada una con un entregable declarado</h2>
+      <p class="bajada">El orden importa: lo que se resuelve en la primera etapa determina si la última se cierra sin observaciones.</p>
+    </div>
+    <ol class="etapas">
+      <li class="etapa revela">
+        <span class="etapa-num">01</span>
+        <h3 class="etapa-titulo">Diagnóstico inicial</h3>
+        <p class="etapa-cuerpo">Levantamiento del estado administrativo y documental del proyecto adjudicado.</p>
+        <dl class="etapa-entrega">
+          <dt>Entrega</dt>
+          <dd>Informe del estado administrativo y documental</dd>
+        </dl>
+      </li>
+      <li class="etapa revela">
+        <span class="etapa-num">02</span>
+        <h3 class="etapa-titulo">Plan de gestión</h3>
+        <p class="etapa-cuerpo">Diseño del calendario de rendiciones, hitos y estructura documental conforme a la normativa.</p>
+        <dl class="etapa-entrega">
+          <dt>Entrega</dt>
+          <dd>Calendario de rendiciones e hitos, con la estructura documental definida</dd>
+        </dl>
+      </li>
+      <li class="etapa revela">
+        <span class="etapa-num">03</span>
+        <h3 class="etapa-titulo">Ejecución y control</h3>
+        <p class="etapa-cuerpo">Revisión continua de gastos, validación de respaldos y alertas preventivas de vencimiento.</p>
+        <dl class="etapa-entrega">
+          <dt>Entrega</dt>
+          <dd>Gastos revisados, respaldos validados y alertas emitidas</dd>
+        </dl>
+      </li>
+      <li class="etapa revela">
+        <span class="etapa-num">04</span>
+        <h3 class="etapa-titulo">Rendición formal</h3>
+        <p class="etapa-cuerpo">Preparación y presentación de las rendiciones ante el organismo financiador.</p>
+        <dl class="etapa-entrega">
+          <dt>Entrega</dt>
+          <dd>Rendición presentada ante el organismo financiador</dd>
+        </dl>
+      </li>
+      <li class="etapa revela">
+        <span class="etapa-num">05</span>
+        <h3 class="etapa-titulo">Cierre y trazabilidad</h3>
+        <p class="etapa-cuerpo">Archivo documental completo y reporte ejecutivo para el equipo de investigación.</p>
+        <dl class="etapa-entrega">
+          <dt>Entrega</dt>
+          <dd>Expediente archivado y reporte ejecutivo para el equipo</dd>
+        </dl>
+      </li>
+    </ol>
+    <p class="nota">La entrada ideal es la adjudicación, antes de ejecutar cualquier gasto. También nos incorporamos en proyectos en curso y en proyectos que ya recibieron observaciones formales: en ese caso partimos por el diagnóstico de la situación y el plan de subsanación dentro de los plazos establecidos.</p>
+  </div>
+</section>
+
+<!-- DESTINATARIOS — tres públicos de peso equivalente: celdas iguales. -->
+<section class="banda" id="destinatarios">
+  <div class="shell">
+    <div class="cabecera cabecera--ancha revela">
+      <p class="eyebrow">Destinatarios</p>
+      <h2 class="titulo">Tres interlocutores, una misma exigencia normativa</h2>
+    </div>
+    <ul class="publicos">
+      <li class="publico revela">
+        <h3 class="publico-titulo">Universidades</h3>
+        <p>Vicerrectorías y unidades de investigación que gestionan múltiples proyectos simultáneos y requieren un control administrativo robusto.</p>
+      </li>
+      <li class="publico revela">
+        <h3 class="publico-titulo">Centros de investigación</h3>
+        <p>Instituciones con equipos multidisciplinarios que necesitan trazabilidad y control en la ejecución de fondos competitivos.</p>
+      </li>
+      <li class="publico revela">
+        <h3 class="publico-titulo">Investigadores responsables</h3>
+        <p>Académicos que lideran proyectos FONDECYT u otros instrumentos y buscan delegar la carga administrativa sin perder control del proyecto.</p>
+      </li>
+    </ul>
+    <p class="nota">La especialización central es ANID. También asesoramos proyectos financiados por otros organismos públicos, evaluando caso a caso la normativa aplicable.</p>
+  </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES — <details name> da acordeón exclusivo y
+     accesibilidad nativa, sin JavaScript. Los seis <summary> deben
+     coincidir con los seis "name" del bloque FAQPage en <head>. -->
+<section class="banda banda--hundida" id="faq">
+  <div class="shell">
+    <div class="cabecera revela">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 class="titulo">Lo que nos preguntan antes de contratar</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>¿En qué momento del proyecto conviene contratar a PROYECTA?</span>
+          <span class="faq-signo" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-respuesta"><p>Lo ideal es incorporarnos desde el momento de la adjudicación, antes de ejecutar cualquier gasto. Esto nos permite diseñar el plan de gestión documental desde cero, alineado con las bases concursales. También podemos incorporarnos en proyectos en curso para ordenar la situación administrativa y prevenir observaciones en las rendiciones pendientes.</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>¿PROYECTA trabaja solo con proyectos ANID o también con otros organismos?</span>
+          <span class="faq-signo" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-respuesta"><p>Nuestra especialización central son los proyectos financiados por ANID (FONDECYT, MILENIO, ANILLOS, entre otros), donde conocemos en profundidad los instructivos, bases y procedimientos vigentes. También podemos asesorar en proyectos financiados por otros organismos públicos, evaluando caso a caso la normativa aplicable.</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>¿Cómo se garantiza la confidencialidad de la información del proyecto?</span>
+          <span class="faq-signo" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-respuesta"><p>Toda la información compartida con PROYECTA SpA está sujeta a estrictos acuerdos de confidencialidad. Operamos con independencia total respecto a los organismos financiadores y a terceros vinculados al proyecto, lo que garantiza que la información documental, presupuestaria y estratégica del equipo de investigación se mantenga reservada.</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>¿Qué ocurre si el proyecto ya tiene observaciones de ANID?</span>
+          <span class="faq-signo" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-respuesta"><p>Podemos intervenir en proyectos que ya han recibido observaciones formales. El primer paso es un diagnóstico de la situación actual: revisamos los documentos objetados, identificamos las causas y elaboramos un plan de subsanación. Nuestro conocimiento de los criterios de revisión de ANID nos permite actuar con precisión para resolver las observaciones dentro de los plazos establecidos.</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>¿El investigador debe seguir participando en los trámites administrativos?</span>
+          <span class="faq-signo" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-respuesta"><p>Nuestro objetivo es reducir al mínimo la carga administrativa del investigador responsable. Nos encargamos de la gestión documental, el seguimiento de plazos y la preparación de rendiciones. El investigador participa únicamente en las decisiones que requieren su firma o criterio técnico — el resto lo gestionamos nosotros.</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>
+          <span>¿Cómo se estructura el servicio: es por proyecto o por período?</span>
+          <span class="faq-signo" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-respuesta"><p>El servicio se estructura según las necesidades del proyecto. Podemos ofrecer acompañamiento integral durante todo el ciclo, asesorías puntuales para etapas específicas, o un servicio de revisión periódica para instituciones que gestionan múltiples proyectos simultáneos. Lo definimos en una primera reunión de diagnóstico sin costo.</p></div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<div class="contacto" id="contacto">
-  <div class="container">
-    <div class="contacto-grid">
-      <div class="contacto-left">
-        <div class="eyebrow on-dark">Contacto</div>
-        <h2 class="contacto-title">Conversemos sobre su proyecto</h2>
-        <p class="contacto-body">Estamos disponibles para acompañarle desde la adjudicación hasta el cierre administrativo. Escríbanos o llámenos directamente para una primera conversación sin compromiso.</p>
-        <div class="contacto-data">
-          <div class="contacto-item contacto-item-emails">
-            <span class="contacto-item-label">Email</span>
-            <div class="contacto-item-links">
-              <a class="contacto-link contacto-link-primary" href="mailto:contacto@proyectachilespa.cl">contacto@proyectachilespa.cl</a>
-              <a class="contacto-link contacto-link-secondary" href="mailto:deecheverria@proyectachilespa.cl">deecheverria@proyectachilespa.cl</a>
-              <a class="contacto-link contacto-link-secondary" href="mailto:fcasala@proyectachilespa.cl">fcasala@proyectachilespa.cl</a>
-            </div>
+<section class="banda banda--osc" id="contacto">
+  <div class="shell">
+    <div class="contacto">
+      <div>
+        <div class="cabecera cabecera--ancha">
+          <p class="eyebrow">Contacto</p>
+          <h2 class="titulo">Conversemos sobre su proyecto</h2>
+          <p class="bajada">La primera reunión es de diagnóstico, sin costo ni compromiso: revisamos la situación administrativa del proyecto y le indicamos cómo podemos apoyarle.</p>
+        </div>
+        <div class="datos">
+          <div class="datos-fila">
+            <span class="datos-clave">Correo</span>
+            <span class="datos-valor datos-lista">
+              <a class="enlace enlace--fuerte" href="mailto:contacto@proyectachilespa.cl">contacto@proyectachilespa.cl</a>
+              <a class="enlace enlace--tenue" href="mailto:deecheverria@proyectachilespa.cl">deecheverria@proyectachilespa.cl</a>
+              <a class="enlace enlace--tenue" href="mailto:fcasala@proyectachilespa.cl">fcasala@proyectachilespa.cl</a>
+            </span>
           </div>
-          <div class="contacto-item"><span class="contacto-item-label">Teléfono</span><span class="contacto-item-val"><a class="contacto-link" href="https://wa.me/56940730322" target="_blank" rel="noopener">+569 40730322</a> · <a class="contacto-link" href="https://wa.me/56945826902" target="_blank" rel="noopener">+569 45826902</a></span></div>
-          <div class="contacto-item"><span class="contacto-item-label">País</span><span class="contacto-item-val">Chile — cobertura nacional</span></div>
+          <div class="datos-fila">
+            <span class="datos-clave">WhatsApp</span>
+            <span class="datos-valor">
+              <a class="enlace" href="https://wa.me/56940730322" target="_blank" rel="noopener">+569 40730322</a> ·
+              <a class="enlace" href="https://wa.me/56945826902" target="_blank" rel="noopener">+569 45826902</a>
+            </span>
+          </div>
+          <div class="datos-fila">
+            <span class="datos-clave">Cobertura</span>
+            <span class="datos-valor">Chile, cobertura nacional. Base en Santiago</span>
+          </div>
         </div>
-        <div class="contacto-meta">
-          <div class="badge on-dark">Especialistas ANID · Fondos públicos</div>
-        </div>
-      </div>
-      <div class="contacto-right">
-        <div class="contacto-card">
-          <div class="contacto-card-title">Primera consulta sin costo</div>
-          <p class="contacto-card-body">Ofrecemos una reunión de diagnóstico inicial sin compromiso, donde evaluamos la situación administrativa de su proyecto y le indicamos cómo podemos apoyarle.</p>
-        </div>
-        <div class="contacto-card">
-          <div class="contacto-card-title">Respuesta en 24 horas hábiles</div>
-          <p class="contacto-card-body">Todo contacto recibe respuesta dentro de un día hábil. Para urgencias relacionadas con plazos de rendición, indicar en el asunto del correo.</p>
-        </div>
-        <div class="contacto-card">
-          <div class="contacto-card-title">Atención presencial o remota</div>
-          <p class="contacto-card-body">Trabajamos con instituciones en todo Chile. Las reuniones de seguimiento pueden realizarse de forma remota; la presencia en terreno se coordina según las necesidades del proyecto.</p>
+        <div class="contacto-acciones">
+          <a href="mailto:contacto@proyectachilespa.cl" class="btn btn--claro btn--lg">Escribir un correo</a>
+          <a href="https://wa.me/56940730322" class="btn btn--claro btn--lg" target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
       </div>
+      <ul class="compromisos">
+        <li class="compromiso">
+          <h3 class="compromiso-titulo">Primera reunión sin costo</h3>
+          <p>Reunión de diagnóstico inicial sin compromiso, para evaluar la situación administrativa del proyecto.</p>
+        </li>
+        <li class="compromiso">
+          <h3 class="compromiso-titulo">Respuesta en un día hábil</h3>
+          <p>Todo contacto recibe respuesta dentro de un día hábil. Si el asunto es un plazo de rendición próximo a vencer, indíquelo en el asunto del correo.</p>
+        </li>
+        <li class="compromiso">
+          <h3 class="compromiso-titulo">Remoto o en terreno</h3>
+          <p>Las reuniones de seguimiento se realizan de forma remota por defecto; la presencia en terreno se coordina según las necesidades del proyecto.</p>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-inner">
-    <div class="footer-row">
-      <div class="footer-logo">PROYECTA SpA © 2025</div>
-      <div class="footer-note">Gestión y Asesoría en Proyectos · Santiago, Chile</div>
+</main>
+
+<!-- PIE -->
+<footer class="pie-fondo">
+  <div class="shell pie">
+    <div>
+      <p class="pie-marca">PROYECTA SpA</p>
+      <p class="pie-nota">Gestión y asesoría en proyectos de investigación · Santiago, Chile · © 2026</p>
     </div>
-    <div class="footer-emails">
-      <a class="footer-link" href="mailto:contacto@proyectachilespa.cl">contacto@proyectachilespa.cl</a>
-      <a class="footer-link" href="mailto:deecheverria@proyectachilespa.cl">deecheverria@proyectachilespa.cl</a>
-      <a class="footer-link" href="mailto:fcasala@proyectachilespa.cl">fcasala@proyectachilespa.cl</a>
+    <div class="pie-correos">
+      <a class="pie-enlace" href="mailto:contacto@proyectachilespa.cl">contacto@proyectachilespa.cl</a>
+      <a class="pie-enlace" href="mailto:deecheverria@proyectachilespa.cl">deecheverria@proyectachilespa.cl</a>
+      <a class="pie-enlace" href="mailto:fcasala@proyectachilespa.cl">fcasala@proyectachilespa.cl</a>
     </div>
   </div>
 </footer>
